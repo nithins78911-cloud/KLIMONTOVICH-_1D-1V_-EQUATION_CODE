@@ -96,9 +96,9 @@ program klimontovich
       do i = 1, nx
         !--- x-advection (upwind) ---
         if (v_arr(j) >= 0.0d0) then
-          x_adv = v_arr(j) * (f(i+1,j) - f(i,j)) / dx
+          x_adv = v_arr(j) * (f(i)−f(i−1)) / dx
         else
-          x_adv = v_arr(j) * (f(i,j) - f(i-1,j)) / dx
+          x_adv = v_arr(j) * (f(i+1)−f(i)) / dx
         end if
 
         !--- v-acceleration (upwind, NOT central) ---
